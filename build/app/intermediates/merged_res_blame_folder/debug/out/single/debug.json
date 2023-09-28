@@ -1,0 +1,50 @@
+[
+    {
+        "merged": "com.example.signup.app-merged_res-34:/mipmap-xxxhdpi_startup_ignition.jpeg.flat",
+        "source": "com.example.signup.app-main-27:/mipmap-xxxhdpi/startup_ignition.jpeg"
+    },
+    {
+        "merged": "/Users/nagavenkataramanan/.gradle/daemon/7.5/com.example.signup.app-merged_res-34:/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "/Users/nagavenkataramanan/.gradle/daemon/7.5/com.example.signup.app-main-27:/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/nagavenkataramanan/.gradle/daemon/7.5/com.example.signup.app-merged_res-34:/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "/Users/nagavenkataramanan/.gradle/daemon/7.5/com.example.signup.app-main-27:/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.example.signup.app-merged_res-34:/mipmap-mdpi_startup_ignition.jpeg.flat",
+        "source": "com.example.signup.app-main-27:/mipmap-mdpi/startup_ignition.jpeg"
+    },
+    {
+        "merged": "/Users/nagavenkataramanan/.gradle/daemon/7.5/com.example.signup.app-merged_res-34:/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "/Users/nagavenkataramanan/.gradle/daemon/7.5/com.example.signup.app-main-27:/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.example.signup.app-merged_res-34:/mipmap-xxhdpi_startup_ignition.jpeg.flat",
+        "source": "com.example.signup.app-main-27:/mipmap-xxhdpi/startup_ignition.jpeg"
+    },
+    {
+        "merged": "/Users/nagavenkataramanan/.gradle/daemon/7.5/com.example.signup.app-merged_res-34:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "/Users/nagavenkataramanan/.gradle/daemon/7.5/com.example.signup.app-main-27:/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/nagavenkataramanan/.gradle/daemon/7.5/com.example.signup.app-merged_res-34:/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "/Users/nagavenkataramanan/.gradle/daemon/7.5/com.example.signup.app-main-27:/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.example.signup.app-merged_res-34:/mipmap-hdpi_startup_ignition.jpeg.flat",
+        "source": "com.example.signup.app-main-27:/mipmap-hdpi/startup_ignition.jpeg"
+    },
+    {
+        "merged": "/Users/nagavenkataramanan/.gradle/daemon/7.5/com.example.signup.app-merged_res-34:/drawable_launch_background.xml.flat",
+        "source": "/Users/nagavenkataramanan/.gradle/daemon/7.5/com.example.signup.app-main-27:/drawable/launch_background.xml"
+    },
+    {
+        "merged": "/Users/nagavenkataramanan/.gradle/daemon/7.5/com.example.signup.app-merged_res-34:/drawable-v21_launch_background.xml.flat",
+        "source": "/Users/nagavenkataramanan/.gradle/daemon/7.5/com.example.signup.app-main-27:/drawable-v21/launch_background.xml"
+    },
+    {
+        "merged": "com.example.signup.app-merged_res-34:/mipmap-xhdpi_startup_ignition.jpeg.flat",
+        "source": "com.example.signup.app-main-27:/mipmap-xhdpi/startup_ignition.jpeg"
+    }
+]

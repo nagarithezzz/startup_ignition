@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Item Cards</title>
+  <!-- Link to the Tailwind CSS stylesheet -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-image: linear-gradient(to bottom right, #FF6034, #FF1B1C, #900DFF);
+      font-family: Arial, sans-serif;
+    }
+
+    .card-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .item-card {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 48px;
+      margin: 16px;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .hidden-card {
+      opacity: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="card-container">
+    <div id="cardContainer">
+      
+    </div>
+  </div>
+
+  <script>
+    
+    function createItemCard(itemData, width) {
+      const cardContainer = document.getElementById('cardContainer');
+
+      const cardDiv = document.createElement('div');
+      cardDiv.className = 'bg-white rounded-lg shadow-md p-4 item-card';
+      cardDiv.style.width = width; 
+      cardDiv.innerHTML = `
+        <h2 class="text-xl font-bold mb-2">${itemData.name}</h2>
+        <p class="mb-2"><strong>Role:</strong> ${itemData.role}</p>
+        <p class="mb-2"><strong>Company:</strong> ${itemData.company}</p>
+        <p class="mb-2"><strong>Designation:</strong> ${itemData.designation}</p>
+        <p class="mb-2">Status: <span class="status">${itemData.status}</span></p>
+        <div class="space-x-4">
+          <button class="px-4 py-2 bg-black text-white rounded-md hover:bg-gray-900 focus:outline-none focus:ring-gray-500 focus:border-gray-500 approve-btn">Approve</button>
+          <button class="px-4 py-2 bg-black text-white rounded-md hover:bg-gray-900 focus:outline-none focus:ring-gray-500 focus:border-gray-500 disapprove-btn">Disapprove</button>
+        </div>
+      `;
+
+      cardContainer.appendChild(cardDiv);
+
+      const statusElement = cardDiv.querySelector('.status');
+      const approveBtn = cardDiv.querySelector('.approve-btn');
+      const disapproveBtn = cardDiv.querySelector('.disapprove-btn');
+
+      let status = itemData.status;
+
+      approveBtn.addEventListener('click', () => {
+        status = 'Approved';
+        updateStatus(statusElement, status, itemData);
+      });
+
+      disapproveBtn.addEventListener('click', () => {
+        status = 'Disapproved';
+        updateStatus(statusElement, status, itemData);
+      });
+    }
+
+    function updateStatus(element, status) {
+      element.textContent = status;
+    }
+
+    
+    function fetchJsonData() {
+      fetch('/fetch')
+        .then(response => response.json())
+        .then(jsonDataList => {
+          jsonDataList.forEach((innerArray) => {
+            const itemData = {
+              "name": innerArray[0],
+              "role": innerArray[2],
+              "email": innerArray[1],
+              "company": innerArray[3],
+              "designation": innerArray[4],
+              "status": "Pending" 
+            };
+            createItemCard(itemData, '480px');
+          });
+        })
+        .catch(error => console.error('Error fetching JSON data:', error));
+    }
+
+    function updateStatus(element, status, itemData) {
+      element.textContent = status;
+      if (status === 'Approved') {
+      fetch('/update_status', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          item_email: itemData.email,
+        })
+      })
+      .then(response => {
+        if (response.ok) {
+          
+          setTimeout(() => {
+            const itemCard = element.closest('.item-card');
+            if (itemCard) {
+              itemCard.remove();
+            }
+          }, 2000);
+        } else {
+          console.error('Failed to update the status on the backend.');
+        }
+      })
+      .catch(error => console.error('Error updating status:', error));
+    }
+  }
+
+
+    function refreshItemCards() {
+      const cardContainer = document.getElementById('cardContainer');
+      cardContainer.innerHTML = ''; 
+
+      jsonDataList.forEach((innerArray) => {
+        const itemData = {
+          "name": innerArray[0],
+          "role": innerArray[2],
+          "email": innerArray[1],
+          "company": innerArray[3],
+          "designation": innerArray[4],
+          "status": "Pending" 
+        };
+        createItemCard(itemData, '480px');
+      });
+    }
+
+    
+    fetchJsonData();
+  </script>
+</body>
+</html>

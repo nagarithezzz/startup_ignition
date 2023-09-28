@@ -1,0 +1,40 @@
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+[33mPress CTRL+C to quit[0m
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+[33mPress CTRL+C to quit[0m
+127.0.0.1 - - [06/Aug/2023 18:04:58] "POST /create HTTP/1.1" 200 -
+[2023-08-06 18:05:07,719] ERROR in app: Exception on /login [POST]
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nagavenkataramanan/Documents/Sit-vit-main/app.py", line 221, in login
+    if pbkdf2_sha256.verify(password, y[18]):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/passlib/utils/handlers.py", line 788, in verify
+    self = cls.from_string(hash, **context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/passlib/handlers/pbkdf2.py", line 65, in from_string
+    rounds, salt, chk = uh.parse_mc3(hash, cls.ident, handler=cls)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/passlib/utils/handlers.py", line 198, in parse_mc3
+    raise exc.InvalidHashError(handler)
+ValueError: not a valid pbkdf2_sha256 hash
+127.0.0.1 - - [06/Aug/2023 18:05:07] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+127.0.0.1 - - [06/Aug/2023 18:05:16] "POST /resetpassmail HTTP/1.1" 200 -
+127.0.0.1 - - [06/Aug/2023 18:06:28] "GET /reset_pass?email=naga.rithesh%40gmail.com&token=$pbkdf2-sha256$29000$o%2FQ.h5DS2tt7jzHG2Ns7xw$45qNJixctbaH5ID1m4foUlVRZoR%2F8Z3D4Jk5R1sIY%2Fk HTTP/1.1" 200 -
+nohup: python: No such file or directory
+nohup: python: No such file or directory
